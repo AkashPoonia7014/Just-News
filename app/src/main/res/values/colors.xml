@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="colorPrimary">#111111</color>
+    <color name="colorPrimaryDark">#111111</color>
+
+    <color name="colorBlue">#E0F1FF</color>
+    <color name="colorYellow">#FFF2C5</color>
+    <color name="colorPink">#FBE4E1</color>
+    <color name="colorPurple">#ECE5FF</color>
+
+    <color name="colorBottomNav">#232323</color>
+    <color name="colorIconsBackground">#f8f8f8</color>
+    <color name="colorTryAgainBackground">#0b0f13</color>
+    <color name="colorBlackBackRipple">#373737</color>
+    <color name="colorTextHint">#646464</color>
+    <color name="colorIconsBackground2">#646464</color>
+    <color name="colorNewsText">#2d2b23</color>
+
+</resources>
+

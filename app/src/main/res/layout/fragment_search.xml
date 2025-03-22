@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.search.SearchFragment">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/blackBackButton"
+        android:layout_width="@dimen/_36sdp"
+        android:layout_height="@dimen/_36sdp"
+        app:backgroundTint="@color/colorBottomNav"
+        android:background="@drawable/ripple_back_arrow_dark"
+        android:src="@drawable/ic_left_arrow"
+        app:fabSize="normal"
+        android:scaleType="center"
+        app:fabCustomSize="@dimen/_36sdp"
+        android:layout_margin="@dimen/_14sdp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginTop="-3dp"
+        android:contentDescription="@string/app_name"
+        android:fontFamily="@font/ubuntu_medium"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:text="@string/search_news"
+        android:textColor="@color/colorIconsBackground"
+        android:textSize="@dimen/_19ssp"
+        app:layout_constraintBottom_toBottomOf="@id/blackBackButton"
+        app:layout_constraintStart_toEndOf="@id/blackBackButton"
+        app:layout_constraintTop_toTopOf="@id/blackBackButton" />
+
+    <RelativeLayout
+        android:id="@+id/layoutSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_14sdp"
+        android:gravity="center_vertical"
+        android:paddingTop="@dimen/_3sdp"
+        android:paddingBottom="@dimen/_3sdp"
+        android:background="@drawable/background_round_bottom_nav"
+        app:layout_constraintTop_toBottomOf="@id/blackBackButton">
+
+
+
+        <EditText
+            android:id="@+id/inputSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:background="@null"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="@string/search_news_edittext"
+            android:textColorHint="@color/colorTextHint"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:includeFontPadding="false"
+            android:inputType="text"
+            android:textColor="@color/colorIconsBackground"
+            android:textColorHighlight="@color/colorTextHint"
+            android:textSize="@dimen/_14ssp"
+            android:paddingEnd="@dimen/_135sdp"
+            tools:ignore="RtlSymmetry,TouchTargetSizeCheck,
+            VisualLintTextFieldSize" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/searchButton"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:adjustViewBounds="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/background_search_black"
+
+            tools:ignore="RtlHardcoded" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_14sdp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/layoutSearch" />
+
+    <include
+        android:id="@+id/searchErrorLayout"
+        layout="@layout/layout_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_14sdp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.mecofarid.squeezeloader.SqueezeLoader
+        android:id="@+id/tryAgainProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/searchErrorLayout"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_marginEnd="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:sl_squeezebarWidth="@dimen/_60sdp"
+        app:sl_animationDuration="1500"
+        app:sl_colorSqueezebar="@color/colorIconsBackground"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

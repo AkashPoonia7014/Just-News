@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_7sdp"
+        android:layout_weight="2"
+        android:fontFamily="@font/ubuntu_regular"
+        android:gravity="center_horizontal"
+        android:text="@string/try_again_your_fault_text"
+        android:textAlignment="center"
+        android:textColor="@color/colorIconsBackground"
+        android:textSize="@dimen/_12ssp" />
+
+    <Button
+        android:id="@+id/tryAgainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_article_middle"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:textColor="@color/colorIconsBackground"
+        android:layout_weight="1"
+        android:text="@string/try_again"
+        android:fontFamily="@font/ubuntu_regular"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

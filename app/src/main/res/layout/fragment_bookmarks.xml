@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.bookmarks.BookmarksFragment">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/blackBackButton"
+        android:layout_width="@dimen/_36sdp"
+        android:layout_height="@dimen/_36sdp"
+        app:backgroundTint="@color/colorBottomNav"
+        android:background="@drawable/ripple_back_arrow_dark"
+        android:src="@drawable/ic_left_arrow"
+        app:fabSize="normal"
+        android:scaleType="center"
+        app:fabCustomSize="@dimen/_36sdp"
+        android:layout_margin="@dimen/_14sdp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginTop="-3dp"
+        android:contentDescription="@string/app_name"
+        android:fontFamily="@font/ubuntu_medium"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:text="@string/saved_news"
+        android:textColor="@color/colorIconsBackground"
+        android:textSize="@dimen/_19ssp"
+        app:layout_constraintBottom_toBottomOf="@id/blackBackButton"
+        app:layout_constraintStart_toEndOf="@id/blackBackButton"
+        app:layout_constraintTop_toTopOf="@id/blackBackButton" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookmarksRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_14sdp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/blackBackButton"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

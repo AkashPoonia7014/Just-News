@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+        <item>
+
+                <shape android:shape="oval">
+                        <solid
+                            android:color="@color/colorBottomNav"/>
+                        <stroke
+                            android:width="@dimen/_2sdp"
+                            android:color="@color/colorBottomNav"/>
+                        <size
+                            android:width="@dimen/_54sdp"
+                            android:height="@dimen/_54sdp"/>
+                </shape>
+        </item>
+
+
+        <item android:drawable="@drawable/ic_home"
+            android:gravity="center"
+            android:width="@dimen/_26sdp"
+            android:height="@dimen/_26sdp"/>
+
+</layer-list>
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">-->
+
+<!--        <item>-->
+
+<!--                <shape android:shape="oval">-->
+<!--                        <stroke-->
+<!--                            android:width="@dimen/_8sdp"-->
+<!--                            android:color="@color/colorBottomNav"/>-->
+<!--                </shape>-->
+<!--        </item>-->
+
+<!--        <item-->
+<!--            android:bottom="@dimen/_7sdp"-->
+<!--            android:top="@dimen/_7sdp"-->
+<!--            android:right="@dimen/_7sdp"-->
+<!--            android:left="@dimen/_7sdp">-->
+
+<!--                <shape android:shape="oval">-->
+<!--                        <solid-->
+<!--                            android:color="@color/colorIconsBackground"/>-->
+<!--                </shape>-->
+<!--        </item>-->
+
+<!--        <item>-->
+<!--                <bitmap android:src="@drawable/ic_home"/>-->
+<!--        </item>-->
+<!--</layer-list>-->

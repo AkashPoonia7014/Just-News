@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Just News</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_bookmarks">Bookmarks</string>
+
+    <string name="just">Just</string>
+    <string name="news">News</string>
+    <string name="try_again_text">Something went wrong, but don’t fret — because we don\'t give a fuck.</string>
+    <string name="try_again_your_fault_text">Something went wrong, but don’t fret \  ——\   it’s your fault.</string>
+    <string name="try_again">Try again</string>
+    <string name="saved_news">Saved News</string>
+    <string name="search_news">Search News</string>
+    <string name="search_news_edittext">Search news</string>
+    <string name="article_fragment">Article</string>
+
+
+</resources>

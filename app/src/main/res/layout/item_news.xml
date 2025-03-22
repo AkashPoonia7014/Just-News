@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutNews"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/background_container_headline"
+    android:layout_margin="@dimen/_14sdp"
+    android:paddingVertical="@dimen/_8sdp"
+    android:paddingHorizontal="@dimen/_9sdp">
+
+
+    <TextView
+        android:id="@+id/textArticleTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorNewsText"
+        android:textSize="@dimen/_18ssp"/>
+
+
+    <TextView
+        android:id="@+id/textArticleSource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:textColor="@color/colorBlackBackRipple"
+        android:textSize="@dimen/_11ssp"
+        android:includeFontPadding="false"/>
+
+
+    <TextView
+        android:id="@+id/textArticleDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:fontFamily="@font/ubuntu_regular"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorTextHint"
+        android:textSize="@dimen/_8ssp"/>
+
+
+    <TextView
+        android:id="@+id/textArticleDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:fontFamily="@font/ubuntu_regular"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/colorNewsText"
+        android:includeFontPadding="false"/>
+
+</LinearLayout>
