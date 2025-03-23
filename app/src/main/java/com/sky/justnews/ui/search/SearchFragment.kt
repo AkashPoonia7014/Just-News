@@ -2,6 +2,7 @@ package com.sky.justnews.ui.search
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,12 +44,12 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var searchErrorLayout: LinearLayout
     private lateinit var tryAgainButton:Button
+//    private var adapterEmpty:Boolean = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSearchBinding.bind(view)
 
-        showKeyboardTo(binding.inputSearch)
 
         searchErrorLayout = view.findViewById(R.id.searchErrorLayout)
         val inflater = requireContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -82,6 +83,13 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                     hideErrorMessage()
                     response.data?.let { newsResponse ->
                         newsAdapter.differ.submitList(newsResponse.articles.toList())
+//                        {
+//                            Toast.makeText(activity, "Updated Count125: ${newsAdapter.itemCount}", Toast.LENGTH_SHORT).show()
+//                            if(newsAdapter.itemCount > 0)  adapterEmpty = false
+//                            Log.d("count", "adapter.itemCount: ${newsAdapter.itemCount}")
+//                            Log.d("count", "adapter Empty: $adapterEmpty")
+//                        }
+
                         val totalPages = newsResponse.totalResults / Constants.QUERY_PAGE_SIZE +2
                         isLastPage = newsViewModel.searchNewsPage == totalPages
                         if (isLastPage) {
@@ -241,11 +249,16 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     */
 
 
-
     // Do something so that keyboard does not open automatically when i am switching between fragments
+    // Handled
 
-//    override fun onResume() {
-//        super.onResume()
-//        hideKeyboardFrom(requireView())
-//    }
+    override fun onResume() {
+        super.onResume()
+        if (binding.inputSearch.text.toString().trim().isEmpty()) {
+            showKeyboardTo(binding.inputSearch)
+        } else {
+            hideKeyboardFrom(requireView())
+        }
+    }
+
 }

@@ -5,6 +5,8 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -51,5 +53,18 @@ class MainActivity : AppCompatActivity() {
                 navView.visibility = View.VISIBLE
             }
         }
+
+
+//        val rootView = binding.container
+//        ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            view.setPadding(
+//                0,  // Left
+//                systemBars.top,  // Status bar height (push content down)
+//                0,  // Right
+//                0   // Bottom (allow content under nav bar)
+//            )
+//            insets
+//        }
     }
 }

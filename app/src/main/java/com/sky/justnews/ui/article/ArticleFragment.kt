@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
@@ -73,6 +75,18 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
             }
 
         }
+
+//        val rootView = binding.mainLayout
+//        ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            view.setPadding(
+//                0,  // Left
+//                0,  // Status bar height (push content down)
+//                0,  // Right
+//                0   // Bottom (allow content under nav bar)
+//            )
+//            insets
+//        }
 
     }
 
