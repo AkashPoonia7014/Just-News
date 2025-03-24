@@ -1,6 +1,9 @@
 package com.sky.justnews
 
+import android.content.Context
 import android.os.Bundle
+import android.provider.Settings
+import android.util.TypedValue
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -35,6 +38,8 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
         navView.itemIconTintList = null
+
+
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -47,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.articleFragment) { // Replace with your fragment ID
+            if (destination.id == R.id.articleFragment) {
                 navView.visibility = View.GONE
             } else {
                 navView.visibility = View.VISIBLE
@@ -55,16 +60,52 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-//        val rootView = binding.container
-//        ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            view.setPadding(
-//                0,  // Left
-//                systemBars.top,  // Status bar height (push content down)
-//                0,  // Right
-//                0   // Bottom (allow content under nav bar)
-//            )
-//            insets
-//        }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.container) { view, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            if(isGestureNavigationEnabled(this)) {
+                view.setPadding(
+                    0,  // Left
+                    systemBars.top,  // Status bar height (push content down)
+                    0,  // Right
+                    0    // Bottom (allow content under nav bar)
+                )
+                insets
+            } else {
+                view.setPadding(
+                    0,  // Left
+                    systemBars.top,  // Status bar height (push content down)
+                    0,  // Right
+                    systemBars.bottom    // Bottom (allow content under nav bar)
+                )
+                insets
+            }
+
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.navView) { view, insets ->
+            // val existingPaddingStart = view.paddingStart  // padding set in the xml
+
+            // another approach for this is instead of getting padding from the xml, dynamically set padding
+            val paddingStart = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -24.5f, view.resources.displayMetrics).toInt()
+
+            view.setPadding(
+                // existingPaddingStart,  // Left (first approach)
+                paddingStart,  // second approach (more recommended)
+                0,  // Status bar height (push content down)
+                0,  // Right
+                // -insets.systemGestureInsets.bottom   // Bottom (allow content under nav bar) (but this is deprecated) so alternative is
+                - insets.getInsets(WindowInsetsCompat.Type.systemGestures()).bottom
+            )
+            insets
+        }
+    }
+
+    private fun isGestureNavigationEnabled(context: Context): Boolean {
+        return try {
+            val mode = Settings.Secure.getInt(context.contentResolver, "navigation_mode")
+            mode == 2  // 2 = Gesture Navigation  (id mode == 2 then the fun returns true)
+        } catch (e: Settings.SettingNotFoundException) {
+            false  // Default to false if setting is unavailable
+        }
     }
 }

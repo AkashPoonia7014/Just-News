@@ -1,11 +1,13 @@
 package com.sky.justnews.ui.article
 
+import android.graphics.Color
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.core.view.ViewCompat
@@ -49,6 +51,8 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
             }
         }
 
+
+
         /*
         // this is a alternative of the above web view which handles null url, anyways the below code also works fine now
         // after i have made all the variables of the article and source classes nullable
@@ -61,6 +65,12 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         }
 
         */
+
+
+        // can use this to solve the problem number 4 which is a progress bar or something when i click on the article and it loads in a web view
+        // so this can be used to achieve this
+        binding.webView.setBackgroundColor(Color.parseColor("#111111"))
+
 
         binding.fabBookmark.setOnClickListener {
             newsViewModel.addToFavourite(article)
@@ -87,6 +97,28 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
 //            )
 //            insets
 //        }
+
+
+        // RANDOM TEST OF GETTING BACKGROUND COLOR
+
+        /*
+        // NOT WORKING AS DESIRED AS OF NOW
+
+        binding.webView.settings.javaScriptEnabled = true
+
+        binding.webView.webViewClient = object : WebViewClient() {
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+
+                // Run JavaScript after the page has fully loaded
+                view?.evaluateJavascript(
+                    "(function() { return window.getComputedStyle(document.body).backgroundColor; })();"
+                ) { color ->
+                    Toast.makeText(view.context, "Color: $color", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        */
 
     }
 
